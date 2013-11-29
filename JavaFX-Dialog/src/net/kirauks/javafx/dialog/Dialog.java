@@ -108,7 +108,7 @@ public class Dialog extends Stage{
                     if(responseListener != null){
                         switch(options){
                             case OK:
-                                responseListener.onResponse(DialogResponse.CANCEL);
+                                responseListener.onResponse(DialogResponse.OK);
                                 break;
                             case YES_NO:
                                 responseListener.onResponse(DialogResponse.NO);
