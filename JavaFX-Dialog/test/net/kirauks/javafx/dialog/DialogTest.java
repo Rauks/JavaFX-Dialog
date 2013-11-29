@@ -7,12 +7,10 @@
 package net.kirauks.javafx.dialog;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import net.kirauks.javafx.dialog.Dialog.DialogListener;
+import net.kirauks.javafx.dialog.Dialog.DialogOptions;
+import net.kirauks.javafx.dialog.Dialog.DialogType;
 
 /**
  *
@@ -22,8 +20,33 @@ public class DialogTest extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Dialog dialog = new Dialog();
-        dialog.showAndWait();
+        DialogListener listener = new DialogListener() {
+            @Override
+            public void onResponse(Dialog.DialogResponse response) {
+                switch(response){
+                    case CANCEL: System.out.println("CANCEL"); break;
+                    case NO: System.out.println("NO"); break;
+                    case YES: System.out.println("YES"); break;
+                    case OK: System.out.println("OK"); break;
+                }
+            }
+        };
+        
+        Dialog dialog1 = new Dialog("Erreur !", listener, DialogType.ERROR, DialogOptions.OK);
+        dialog1.showAndWait();
+        
+        Dialog dialog2 = new Dialog("Info !", listener, DialogType.INFORMATION, DialogOptions.OK);
+        dialog2.showAndWait();
+        
+        Dialog dialog3 = new Dialog("Warning !", listener, DialogType.WARNING, DialogOptions.OK_CANCEL);
+        dialog3.showAndWait();
+        
+        Dialog dialog4 = new Dialog("Question ?", listener, DialogType.QUESTION, DialogOptions.YES_NO);
+        dialog4.showAndWait();
+        
+        Dialog dialog5 = new Dialog("Question ?", listener, DialogType.QUESTION, DialogOptions.YES_NO_CANCEL);
+        dialog5.showAndWait();
+        
     }
 
     /**

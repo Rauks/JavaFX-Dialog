@@ -2,10 +2,35 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" fx:controller="net.kirauks.javafx.dialog.DialogController">
-    
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="net.kirauks.javafx.dialog.DialogController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f2" height="65.0" layoutX="-5.0" layoutY="100.0" stroke="#dfdfdf" strokeType="INSIDE" width="330.0" />
+    <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <HBox fx:id="buttonsBox" alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="TOP_LEFT">
+          <padding>
+            <Insets left="30.0" right="30.0" />
+          </padding>
+        </HBox>
+      </bottom>
+      <center>
+        <HBox alignment="CENTER" prefHeight="-1.0" prefWidth="-1.0" spacing="20.0">
+          <children>
+            <ImageView fx:id="image" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="message" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="" textOverrun="WORD_ELLIPSIS" wrapText="true" HBox.hgrow="ALWAYS" />
+          </children>
+          <padding>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+          </padding>
+        </HBox>
+      </center>
+    </BorderPane>
+  </children>
 </AnchorPane>
