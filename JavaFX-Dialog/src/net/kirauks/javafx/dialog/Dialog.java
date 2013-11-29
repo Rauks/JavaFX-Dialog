@@ -71,7 +71,7 @@ public class Dialog extends Stage{
                             responseListener.onResponse(DialogResponse.OK);
                         }
                     }
-                }, false, options == DialogOptions.OK);
+                }, options == DialogOptions.OK, true);
             }
             if(options == DialogOptions.YES_NO || options == DialogOptions.YES_NO_CANCEL){
                 controller.addButton("Oui", new EventHandler<ActionEvent>() {
@@ -81,7 +81,7 @@ public class Dialog extends Stage{
                             responseListener.onResponse(DialogResponse.YES);
                         }
                     }
-                });
+                }, false, true);
                 controller.addButton("Non", new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent t) {
@@ -89,7 +89,7 @@ public class Dialog extends Stage{
                             responseListener.onResponse(DialogResponse.NO);
                         }
                     }
-                }, false, options == DialogOptions.YES_NO);
+                }, options == DialogOptions.YES_NO, false);
             }
             if(options == DialogOptions.OK_CANCEL || options == DialogOptions.YES_NO_CANCEL){
                 controller.addButton("Annuler", new EventHandler<ActionEvent>() {
@@ -99,7 +99,7 @@ public class Dialog extends Stage{
                             responseListener.onResponse(DialogResponse.CANCEL);
                         }
                     }
-                }, true, true);
+                }, true, false);
             }
             
             this.setOnCloseRequest(new EventHandler<WindowEvent>() {
