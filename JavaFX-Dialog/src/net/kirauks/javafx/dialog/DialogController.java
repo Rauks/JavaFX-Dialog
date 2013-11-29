@@ -24,7 +24,7 @@ import javafx.scene.layout.HBox;
  * @author Karl
  */
 public class DialogController implements Initializable {
-    private static final double DEFAULT_BUTTON_WIDTH = 80;
+    private static final double DEFAULT_BUTTON_WIDTH = 70;
     
     @FXML
     private Label message;
