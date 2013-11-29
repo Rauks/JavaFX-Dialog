@@ -55,6 +55,12 @@ public class Dialog extends Stage{
         public void onResponse(DialogResponse response);
     }
     
+    public Dialog(String message, final DialogType type, final DialogOptions options){
+        this(message, null, type, options);
+    }
+    public Dialog(String message, final DialogType type, final DialogOptions options, final Window ownerWindows){
+        this(message, null, type, options, ownerWindows);
+    }
     public Dialog(String message, final DialogListener responseListener, final DialogType type, final DialogOptions options, final Window ownerWindows){
         this(message, responseListener, type, options);
         this.initOwner(ownerWindows);
