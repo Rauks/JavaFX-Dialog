@@ -15,7 +15,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 
 /**
@@ -54,6 +56,7 @@ public class Dialog extends Stage{
     
     public Dialog(String message, final DialogListener responseListener, final DialogType type, final DialogOptions options){
         super();
+        this.initStyle(StageStyle.UTILITY);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dialog.fxml"));
             Parent root = (Parent) fxmlLoader.load();
@@ -123,6 +126,7 @@ public class Dialog extends Stage{
             });
             
             this.setScene(new Scene(root));
+            this.centerOnScreen();
         } catch (IOException ex) {
             Logger.getLogger(Dialog.class.getName()).log(Level.SEVERE, null, ex);
         }
