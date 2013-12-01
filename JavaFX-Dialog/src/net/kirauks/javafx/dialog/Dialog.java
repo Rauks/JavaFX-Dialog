@@ -26,6 +26,11 @@ import javafx.stage.WindowEvent;
  * @author Karl
  */
 public class Dialog extends Stage{
+    private final static String BUTTON_TEXT_OK = "Ok";
+    private final static String BUTTON_TEXT_CANCEL = "Annuler";
+    private final static String BUTTON_TEXT_YES = "Oui";
+    private final static String BUTTON_TEXT_NO = "Non";
+    
     public enum DialogType{
         ERROR("dialog_error.png"),
         WARNING("dialog_warning.png"),
@@ -80,7 +85,7 @@ public class Dialog extends Stage{
             controller.setImage(new Image(Dialog.class.getResource(type.imageURL).toString()));
             
             if(options == DialogOptions.OK || options == DialogOptions.OK_CANCEL){
-                controller.addButton("Ok", new EventHandler<ActionEvent>() {
+                controller.addButton(BUTTON_TEXT_OK, new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent t) {
                         if(responseListener != null){
@@ -90,7 +95,7 @@ public class Dialog extends Stage{
                 }, options == DialogOptions.OK, true);
             }
             if(options == DialogOptions.YES_NO || options == DialogOptions.YES_NO_CANCEL){
-                controller.addButton("Oui", new EventHandler<ActionEvent>() {
+                controller.addButton(BUTTON_TEXT_YES, new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent t) {
                         if(responseListener != null){
@@ -98,7 +103,7 @@ public class Dialog extends Stage{
                         }
                     }
                 }, false, true);
-                controller.addButton("Non", new EventHandler<ActionEvent>() {
+                controller.addButton(BUTTON_TEXT_NO, new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent t) {
                         if(responseListener != null){
@@ -108,7 +113,7 @@ public class Dialog extends Stage{
                 }, options == DialogOptions.YES_NO, false);
             }
             if(options == DialogOptions.OK_CANCEL || options == DialogOptions.YES_NO_CANCEL){
-                controller.addButton("Annuler", new EventHandler<ActionEvent>() {
+                controller.addButton(BUTTON_TEXT_CANCEL, new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent t) {
                         if(responseListener != null){
