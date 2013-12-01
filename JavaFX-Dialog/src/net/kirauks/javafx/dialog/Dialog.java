@@ -42,10 +42,6 @@ public class Dialog extends Stage{
         private DialogType(String imageURL){
             this.imageURL = imageURL;
         }
-        
-        private String getImageURL(){
-            return this.imageURL;
-        }
     }
     public enum DialogOptions{
         OK,
